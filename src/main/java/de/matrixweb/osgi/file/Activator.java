@@ -19,7 +19,7 @@ public class Activator implements BundleActivator {
    * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
    */
   @Override
-  public void start(final BundleContext context) throws Exception {
+  public void start(final BundleContext context) {
     String deployDir = context.getProperty("deploy.dir");
     if (deployDir == null) {
       deployDir = "deploy";
@@ -35,7 +35,7 @@ public class Activator implements BundleActivator {
    * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
    */
   @Override
-  public void stop(final BundleContext context) throws Exception {
+  public void stop(final BundleContext context) {
     this.watchdog.halt();
     this.tracker.close();
   }
